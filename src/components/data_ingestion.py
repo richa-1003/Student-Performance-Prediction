@@ -1,5 +1,7 @@
 import os
 import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from src.exception import CustomException 
 from src.logger import logging
 import pandas as pd
@@ -26,7 +28,7 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info("entered the data ingestion method or component")
         try:
-            df=pd.read_csv('notebook\data\stud.csv')
+            df=pd.read_csv('notebook/data/stud.csv')
             logging.info('Read the dataset as DataFrame')
 
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok=True)
